@@ -51,11 +51,11 @@
             shadow-sm
             px-4
             py-2
-            bg-blue-500
+            bg-blue-700
             text-md
             font-medium
             text-white
-            hover:bg-blue-400
+            hover:bg-blue-600
             focus:outline-none
           "
         >
