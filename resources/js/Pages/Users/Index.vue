@@ -1,8 +1,6 @@
 <template>
   <Head title="Users" />
-  <BreezeAuthenticatedLayout>
-    <div>hello</div>
-  </BreezeAuthenticatedLayout>
+  <BreezeAuthenticatedLayout> </BreezeAuthenticatedLayout>
 </template>
 
 <script>
