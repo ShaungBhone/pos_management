@@ -3,46 +3,67 @@
   <BreezeAuthenticatedLayout>
     <div>
       <h1 class="mb-8 font-bold text-3xl">Users</h1>
-      <div class="this-is-for-search">
-        <div class="inline-flex flex-col justify-center relative text-gray-500">
-          <div class="relative">
-            <input
-              type="text"
-              class="
-                mb-4
-                p-2
-                pl-8
-                rounded
-                border border-gray-200
-                bg-gray-200
-                focus:bg-white
-                focus:outline-none
-                focus:ring-2 focus:ring-blue-500
-                focus:border-transparent
-              "
-              placeholder="search..."
-              value=""
-            />
-            <svg
-              class="w-4 h-4 absolute left-2.5 top-3.5"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+      <div class="flex justify-between">
+        <header>
+          <div
+            class="inline-flex flex-col justify-center relative text-gray-500"
+          >
+            <div class="relative">
+              <input
+                type="text"
+                class="
+                  p-2
+                  pl-8
+                  rounded
+                  border border-gray-200
+                  bg-gray-200
+                  focus:bg-white
+                  focus:outline-none
+                  focus:ring-2 focus:ring-blue-500
+                  focus:border-transparent
+                "
+                placeholder="search..."
+                value=""
               />
-            </svg>
+              <svg
+                class="w-4 h-4 absolute left-2.5 top-3.5"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
           </div>
-        </div>
-        <SearchFilter />
+          <SearchFilter />
+        </header>
+        <Link
+          :href="route('users.create')"
+          class="
+            rounded-md
+            border border-gray-300
+            shadow-sm
+            px-4
+            py-2
+            bg-blue-500
+            text-md
+            font-medium
+            text-white
+            hover:bg-blue-400
+            focus:outline-none
+          "
+        >
+          Create User
+        </Link>
       </div>
 
-      <div class="flex flex-col">
+      <div class="flex flex-col mt-4">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div
             class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8"
@@ -195,7 +216,7 @@
 
 <script>
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
-import { Head } from "@inertiajs/inertia-vue3";
+import { Head, Link } from "@inertiajs/inertia-vue3";
 import SearchFilter from "@/Components/SearchFilter.vue";
 
 export default {
@@ -203,6 +224,7 @@ export default {
     BreezeAuthenticatedLayout,
     Head,
     SearchFilter,
+    Link,
   },
 };
 </script>
