@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col">
     <div class="h-screen flex flex-col">
-      <div class="flex flex-grow overflow-hidden">
-        <MainMenu class="bg-white shadow-xl flex-shrink-0 w-24" />
-        <div class="flex-1 p-8">
+      <div class="flex flex-grow">
+        <MainMenu class="shadow-xl flex-shrink-0 w-24" />
+        <div class="flex-1 p-8 bg-gray-300">
           <slot />
         </div>
       </div>
