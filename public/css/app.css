@@ -588,16 +588,6 @@ video {
 	--tw-ring-offset-shadow: 0 0 #0000;
 	--tw-ring-shadow: 0 0 #0000;
 	--tw-shadow: 0 0 #0000;
-	--tw-blur: var(--tw-empty,/*!*/ /*!*/);
-	--tw-brightness: var(--tw-empty,/*!*/ /*!*/);
-	--tw-contrast: var(--tw-empty,/*!*/ /*!*/);
-	--tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
-	--tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
-	--tw-invert: var(--tw-empty,/*!*/ /*!*/);
-	--tw-saturate: var(--tw-empty,/*!*/ /*!*/);
-	--tw-sepia: var(--tw-empty,/*!*/ /*!*/);
-	--tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
-	--tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 
@@ -1126,9 +1116,6 @@ select {
 .border-r {
 	border-right-width: 1px;
 }
-.border-b-2 {
-	border-bottom-width: 2px;
-}
 .border-l-4 {
 	border-left-width: 4px;
 }
@@ -1222,10 +1209,6 @@ select {
 	padding-top: 0.25rem;
 	padding-bottom: 0.25rem;
 }
-.px-1 {
-	padding-left: 0.25rem;
-	padding-right: 0.25rem;
-}
 .py-5 {
 	padding-top: 1.25rem;
 	padding-bottom: 1.25rem;
@@ -1240,9 +1223,6 @@ select {
 }
 .pt-8 {
 	padding-top: 2rem;
-}
-.pt-1 {
-	padding-top: 0.25rem;
 }
 .pl-3 {
 	padding-left: 0.75rem;
@@ -1358,6 +1338,10 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(220, 38, 38, var(--tw-text-opacity));
 }
+.text-blue-500 {
+	--tw-text-opacity: 1;
+	color: rgba(59, 130, 246, var(--tw-text-opacity));
+}
 .text-indigo-700 {
 	--tw-text-opacity: 1;
 	color: rgba(67, 56, 202, var(--tw-text-opacity));
@@ -1366,21 +1350,9 @@ select {
 	--tw-text-opacity: 1;
 	color: rgba(5, 150, 105, var(--tw-text-opacity));
 }
-.text-blue-500 {
-	--tw-text-opacity: 1;
-	color: rgba(59, 130, 246, var(--tw-text-opacity));
-}
 .text-green-800 {
 	--tw-text-opacity: 1;
 	color: rgba(6, 95, 70, var(--tw-text-opacity));
-}
-.text-red-500 {
-	--tw-text-opacity: 1;
-	color: rgba(239, 68, 68, var(--tw-text-opacity));
-}
-.text-blue-700 {
-	--tw-text-opacity: 1;
-	color: rgba(29, 78, 216, var(--tw-text-opacity));
 }
 .underline {
 	text-decoration: underline;
@@ -1434,9 +1406,6 @@ select {
 .ring-opacity-5 {
 	--tw-ring-opacity: 0.05;
 }
-.filter {
-	filter: var(--tw-filter);
-}
 .transition {
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -1488,10 +1457,6 @@ select {
 .hover\:text-gray-400:hover {
 	--tw-text-opacity: 1;
 	color: rgba(156, 163, 175, var(--tw-text-opacity));
-}
-.hover\:text-gray-700:hover {
-	--tw-text-opacity: 1;
-	color: rgba(55, 65, 81, var(--tw-text-opacity));
 }
 .hover\:text-gray-800:hover {
 	--tw-text-opacity: 1;
@@ -1546,10 +1511,6 @@ select {
 .focus\:bg-white:focus {
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-}
-.focus\:text-gray-700:focus {
-	--tw-text-opacity: 1;
-	color: rgba(55, 65, 81, var(--tw-text-opacity));
 }
 .focus\:text-indigo-800:focus {
 	--tw-text-opacity: 1;

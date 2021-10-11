@@ -9,7 +9,7 @@
         :active="$page.component === 'Dashboard'"
       >
         <HomeIcon name="home" class="w-7 h-7" />
-        <span class="text-sm mt-2"> Home </span>
+        <span class="text-sm mt-1"> Home </span>
       </NavLink>
 
       <!-- Users Page -->
@@ -18,7 +18,7 @@
         :active="$page.component === 'Users/Index'"
       >
         <UsersIcon name="users" class="w-7 h-7" />
-        <span class="text-sm mt-2"> Users </span>
+        <span class="text-sm mt-1"> Users </span>
       </NavLink>
     </div>
 
@@ -26,7 +26,7 @@
     <div class="flex flex-col">
       <NavLink :href="route('logout')" method="post" as="button">
         <LogoutIcon class="w-7 h-7" />
-        <span class="text-sm mt-2">Logout</span>
+        <span class="text-sm mt-1">Logout</span>
       </NavLink>
     </div>
   </article>
@@ -45,7 +45,6 @@ import {
 export default {
   components: {
     BreezeApplicationLogo,
-    Link,
     NavLink,
     HomeIcon,
     UsersIcon,

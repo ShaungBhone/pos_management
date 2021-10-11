@@ -19,92 +19,74 @@
           </div>
         </div>
         <div class="mt-5 md:mt-0 md:col-span-2">
+          <BreezeValidationErrors class="mb-4" />
           <form @submit.prevent="store">
             <div class="shadow overflow-hidden sm:rounded-md">
               <div class="px-4 py-5 bg-white sm:p-6">
                 <div class="grid grid-cols-6 gap-6">
                   <div class="col-span-6 sm:col-span-3">
-                    <label
-                      for="first-name"
-                      class="block text-sm font-medium text-gray-700"
-                      >First name</label
-                    >
-                    <input
+                    <BreezeLabel for="first-name" value="First Name" />
+                    <BreezeInput
+                      id="first_name"
                       type="text"
-                      name="first-name"
-                      id="first-name"
-                      autocomplete="given-name"
-                      class="
-                        mt-1
-                        focus:ring-blue-500
-                        focus:border-blue-500
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                      "
+                      v-model="form.first_name"
+                      required
+                      autofocus
+                      autocomplete="first_name"
                     />
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
-                    <label
-                      for="last-name"
-                      class="block text-sm font-medium text-gray-700"
-                      >Last name</label
-                    >
-                    <input
+                    <BreezeLabel for="last-name" value="Last Name" />
+                    <BreezeInput
+                      id="last_name"
                       type="text"
-                      name="last-name"
-                      id="last-name"
-                      autocomplete="family-name"
-                      class="
-                        mt-1
-                        focus:ring-blue-500
-                        focus:border-blue-500
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                      "
+                      v-model="form.last_name"
+                      required
+                      autofocus
+                      autocomplete="last_name"
                     />
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
-                    <label
-                      for="email-address"
-                      class="block text-sm font-medium text-gray-700"
-                      >Email address</label
-                    >
-                    <input
-                      type="text"
-                      name="email-address"
-                      id="email-address"
-                      autocomplete="email"
-                      class="
-                        mt-1
-                        focus:ring-blue-500
-                        focus:border-blue-500
-                        block
-                        w-full
-                        shadow-sm
-                        sm:text-sm
-                        border-gray-300
-                        rounded-md
-                      "
+                    <BreezeLabel for="email" value="Email" />
+                    <BreezeInput
+                      id="email"
+                      type="email"
+                      v-model="form.email"
+                      required
+                      autocomplete="username"
                     />
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
-                    <label
-                      for="role"
-                      class="block text-sm font-medium text-gray-700"
-                      >Role</label
-                    >
+                    <BreezeLabel for="password" value="Password" />
+                    <BreezeInput
+                      id="password"
+                      type="password"
+                      v-model="form.password"
+                      required
+                      autocomplete="new-password"
+                    />
+                  </div>
+                  <div class="col-span-6 sm:col-span-3">
+                    <BreezeLabel
+                      for="password_confirmation"
+                      value="Confirm Password"
+                    />
+                    <BreezeInput
+                      id="password_confirmation"
+                      type="password"
+                      v-model="form.password_confirmation"
+                      required
+                      autocomplete="new-password"
+                    />
+                  </div>
+
+                  <div class="col-span-6 sm:col-span-3">
+                    <BreezeLabel for="user_type" value="Role" />
                     <select
+                      v-model="form.user_type"
                       id="role"
                       name="role"
                       autocomplete="role"
@@ -124,14 +106,20 @@
                         sm:text-sm
                       "
                     >
-                      <option>Manager</option>
-                      <option>Cashier</option>
+                      <option :value="3">Manager</option>
+                      <option :value="4">Surpervisor</option>
+                      <option :value="5">Cashier</option>
                     </select>
                   </div>
                 </div>
               </div>
               <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                <BreezeButton> Save </BreezeButton>
+                <BreezeButton
+                  :class="{ 'opacity-25': form.processing }"
+                  :disabled="form.processing"
+                >
+                  Save
+                </BreezeButton>
               </div>
             </div>
           </form>
@@ -143,15 +131,21 @@
 
 <script>
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
+import BreezeValidationErrors from "@/Components/ValidationErrors.vue";
 import BreezeButton from "@/Components/Button.vue";
+import BreezeLabel from "@/Components/Label.vue";
+import BreezeInput from "@/Components/Input.vue";
 import { Head, Link } from "@inertiajs/inertia-vue3";
 
 export default {
   components: {
     BreezeAuthenticatedLayout,
+    BreezeValidationErrors,
     Head,
     Link,
     BreezeButton,
+    BreezeLabel,
+    BreezeInput,
   },
   data() {
     return {
@@ -161,7 +155,7 @@ export default {
         email: "",
         password: "",
         password_confirmation: "",
-        terms: false,
+        user_type: "",
       }),
     };
   },

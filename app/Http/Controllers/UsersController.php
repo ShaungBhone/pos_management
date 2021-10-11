@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rules\Password;
 
 class UsersController extends Controller
@@ -42,6 +45,7 @@ class UsersController extends Controller
             'first_name' => 'required|string|max:25',
             'last_name' => 'required|string|max:25',
             'email' => 'required|string|email|max:255|unique:users',
+            'user_type' => 'required|integer|max:10',
             'password' => ['required', 'confirmed', Password::defaults()],
         ]);
 
@@ -49,6 +53,7 @@ class UsersController extends Controller
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
+            'user_type' => $request->user_type,
             'password' => Hash::make($request->password),
         ]);
 
@@ -56,7 +61,7 @@ class UsersController extends Controller
 
         Auth::login($user);
 
-        return back();
+        return Redirect::route('users.index');
     }
 
     /**
