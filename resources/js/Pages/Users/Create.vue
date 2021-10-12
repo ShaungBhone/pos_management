@@ -2,7 +2,7 @@
   <Head title="Users" />
   <BreezeAuthenticatedLayout>
     <h1 class="mb-8 font-bold text-3xl">
-      <Link class="text-blue-500" :href="route('users.index')">Users</Link>
+      <Link class="text-blue-700" :href="route('users.index')">Users</Link>
       <span class="font-medium"> /</span> Create
     </h1>
 
@@ -84,11 +84,12 @@
                   </div>
 
                   <div class="col-span-6 sm:col-span-3">
-                    <BreezeLabel for="user_type" value="Role" />
+                    <BreezeLabel for="role" value="Role" />
                     <select
                       v-model="form.user_type"
                       id="role"
                       name="role"
+                      required
                       autocomplete="role"
                       class="
                         mt-1

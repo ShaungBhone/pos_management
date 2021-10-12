@@ -141,7 +141,7 @@
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                  <tr>
+                  <tr v-for="user in users" :key="user.id">
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="flex items-center">
                         <div class="flex-shrink-0 h-10 w-10">
@@ -153,10 +153,10 @@
                         </div>
                         <div class="ml-4">
                           <div class="text-sm font-medium text-gray-900">
-                            Jane Cooper
+                            {{ user.name }}
                           </div>
                           <div class="text-sm text-gray-500">
-                            jane.cooper@example.com
+                            {{ user.email }}
                           </div>
                         </div>
                       </div>
@@ -186,7 +186,11 @@
                     <td
                       class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"
                     >
-                      Admin
+                      <span v-if="user.user_type === 1">Admin</span>
+                      <span v-else-if="user.user_type === 2">User</span>
+                      <span v-else-if="user.user_type === 3">Manager</span>
+                      <span v-else-if="user.user_type === 4">Supervisor</span>
+                      <span v-else-if="user.user_type === 5">Cashier</span>
                     </td>
                     <td
                       class="
@@ -225,6 +229,9 @@ export default {
     Head,
     SearchFilter,
     Link,
+  },
+  props: {
+    users: Array,
   },
 };
 </script>

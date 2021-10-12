@@ -20,7 +20,19 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Users/Index');
+        return Inertia::render('Users/Index', [
+            'users' => Auth::user()
+                ->orderByName()
+                ->get()
+                ->transform(
+                    fn($user) => [
+                        'id' => $user->id,
+                        'name' => $user->name,
+                        'email' => $user->email,
+                        'user_type' => $user->user_type,
+                    ],
+                ),
+        ]);
     }
 
     /**
