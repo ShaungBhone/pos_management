@@ -5,14 +5,14 @@
   </BreezeAuthenticatedLayout>
 </template>
 
-<script>
+<script setup>
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 
-export default {
-  components: {
-    BreezeAuthenticatedLayout,
-    Head,
-  },
-};
+// export default {
+//   components: {
+//     BreezeAuthenticatedLayout,
+//     Head,
+//   },
+// };
 </script>

@@ -223,27 +223,15 @@
   </BreezeAuthenticatedLayout>
 </template>
 
-<script>
+<script setup>
 import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import { Head, Link } from "@inertiajs/inertia-vue3";
 import SearchFilter from "@/Components/SearchFilter.vue";
 import SuccessMessage from "@/Components/SuccessMessage.vue";
 
-export default {
-  data() {
-    return {
-      show: true,
-    };
-  },
-  components: {
-    BreezeAuthenticatedLayout,
-    Head,
-    SearchFilter,
-    Link,
-    SuccessMessage,
-  },
-  props: {
-    users: Array,
-  },
+defineProps({ users: Array });
+
+data: () => {
+  show: ture;
 };
 </script>
