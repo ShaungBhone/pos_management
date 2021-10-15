@@ -27,7 +27,7 @@ class StoreUserRequest extends FormRequest
         return [
             'first_name' => 'required|string|max:25',
             'last_name' => 'required|string|max:25',
-            'email' => 'required|string|email|max:50|unique:users',
+            'email' => 'required|string|max:50|unique:users,email,' . $this->user()->id,
             'user_type' => 'required|integer|max:10',
             'password' => ['required', 'confirmed', Password::defaults()],
         ];
