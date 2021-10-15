@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\Rules\Password;
+use App\Http\Requests\Users\StoreUserRequest;
 
 class UsersController extends Controller
 {
@@ -49,18 +50,12 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\Users\StoreUserRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        $request->validate([
-            'first_name' => 'required|string|max:25',
-            'last_name' => 'required|string|max:25',
-            'email' => 'required|string|email|max:50|unique:users',
-            'user_type' => 'required|integer|max:10',
-            'password' => ['required', 'confirmed', Password::defaults()],
-        ]);
+        $request->validated();
 
         $user = User::create([
             'first_name' => $request->first_name,
@@ -110,24 +105,18 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\Users\StoreUserRequest  $request
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(User $user)
+    public function update(User $user, StoreUserRequest $request)
     {
-        Request::validate([
-            'first_name' => 'required|string|max:25',
-            'last_name' => 'required|string|max:25',
-            'email' => ['required', 'max:50', 'string', 'email', Rule::unique('users')->ignore($user->id)],
-            'user_type' => 'required|integer|max:10',
-            'password' => ['required', 'confirmed', Password::defaults()],
-        ]);
+        $request->validated();
 
-        $user->update(Request::only('first_name', 'last_name', 'email', 'user_type'));
+        $user->update($request->only('first_name', 'last_name', 'email', 'user_type'));
 
-        if (Request::get('password')) {
-            $user->update(['password' => Request::get('password')]);
+        if ($request->get('password')) {
+            $user->update(['password' => $request->get('password')]);
         }
 
         return Redirect::route('users.index')->with('success', 'User has successfully updated!');

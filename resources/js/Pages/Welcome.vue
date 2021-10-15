@@ -46,6 +46,7 @@
 import { Head, Link } from "@inertiajs/inertia-vue3";
 
 export default {
+  layout: null,
   components: {
     Head,
     Link,
