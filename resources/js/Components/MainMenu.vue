@@ -20,6 +20,15 @@
         <UsersIcon name="users" class="w-7 h-7" />
         <span class="text-sm mt-1"> Users </span>
       </NavLink>
+
+      <!-- Products Page -->
+      <NavLink
+        :href="route('products.index')"
+        :active="$page.component === 'Products/Index'"
+      >
+        <CubeIcon name="users" class="w-7 h-7" />
+        <span class="text-sm mt-1"> Products </span>
+      </NavLink>
     </div>
 
     <!-- Log Out -->
@@ -32,9 +41,11 @@
   </article>
 </template>
 
-<script>
+<script setup>
 import BreezeApplicationLogo from "@/Components/ApplicationLogo.vue";
 import NavLink from "@/Components/NavLink.vue";
+
+// heroicons
 import {
   HomeIcon,
   UsersIcon,
@@ -42,15 +53,4 @@ import {
   CubeIcon,
   LogoutIcon,
 } from "@heroicons/vue/outline";
-export default {
-  components: {
-    BreezeApplicationLogo,
-    NavLink,
-    HomeIcon,
-    UsersIcon,
-    ShoppingBagIcon,
-    CubeIcon,
-    LogoutIcon,
-  },
-};
 </script>

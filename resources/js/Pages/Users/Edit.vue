@@ -104,7 +104,7 @@
                     "
                   >
                     <option :value="3">Manager</option>
-                    <option :value="4">Surpervisor</option>
+                    <option :value="4">Supervisor</option>
                     <option :value="5">Cashier</option>
                   </select>
                 </div>
