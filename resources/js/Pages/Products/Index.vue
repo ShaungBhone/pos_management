@@ -45,7 +45,7 @@
         <SearchFilter />
       </header>
       <Link
-        :href="route('users.create')"
+        :href="route('products.create')"
         class="
           rounded-md
           border border-gray-300
@@ -140,22 +140,23 @@
                 </tr>
               </thead>
               <tbody class="bg-white divide-y divide-gray-200">
-                <tr v-for="user in users" :key="user.id">
+                <tr v-for="product in products.data" :key="product.id">
                   <td class="px-6 py-4 whitespace-nowrap">
                     <div class="flex items-center">
-                      <div class="flex-shrink-0 h-10 w-10">
+                      <div class="flex-shrink-0 h-20 w-20">
                         <img
-                          class="h-10 w-10 rounded-full"
-                          src="https://avatars.dicebear.com/api/bottts/:seed.svg"
-                          :alt="user.name"
+                          class="h-20 w-20 rounded-sm"
+                          :src="product.image"
+                          :key="product.image"
+                          :alt="product.name"
                         />
                       </div>
                       <div class="ml-4">
                         <div class="text-sm font-medium text-gray-900">
-                          {{ user.name }}
+                          {{ product.name }}
                         </div>
                         <div class="text-sm text-gray-500">
-                          {{ user.email }}
+                          <!-- {{ product.barcode }} -->
                         </div>
                       </div>
                     </div>
@@ -195,7 +196,7 @@
                     "
                   >
                     <Link
-                      :href="route('users.edit', user.id)"
+                      :href="route('products.edit', product.id)"
                       class="text-indigo-600 hover:text-indigo-900"
                       >Edit</Link
                     >
@@ -215,5 +216,5 @@
 import SearchFilter from "@/Components/SearchFilter.vue";
 import SuccessMessage from "@/Components/SuccessMessage.vue";
 
-// defineProps({ users: Array });
+defineProps({ products: Object });
 </script>

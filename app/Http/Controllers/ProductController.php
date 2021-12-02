@@ -15,7 +15,22 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Products/Index');
+        return Inertia::render('Products/Index', [
+            'products' => Product::orderBy('name')
+                ->paginate(5)
+                ->withQueryString()
+                ->through(
+                    fn($product) => [
+                        'id' => $product->id,
+                        'name' => $product->name,
+                        'slug' => $product->slug,
+                        'image' => $product->image,
+                        'barcode' => $product->barcode,
+                        'description' => $product->description,
+                        'price' => $product->price,
+                    ],
+                ),
+        ]);
     }
 
     /**
@@ -25,7 +40,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Products/Create');
     }
 
     /**
