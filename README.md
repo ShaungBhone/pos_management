@@ -1,3 +1,4 @@
+//resources/views/vendor/filament/components/layouts/app/sidebar/index.blade.php
 <aside
     x-data="{}"
     @if (config('filament.layout.sidebar.is_collapsible_on_desktop'))
